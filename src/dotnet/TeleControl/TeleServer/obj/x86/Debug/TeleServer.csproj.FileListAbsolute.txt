@@ -1,0 +1,14 @@
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\TeleServer.exe.config
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\TeleServer.exe
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\TeleServer.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\MainWindow.baml
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\MainWindow.g.cs
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\App.g.cs
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\TeleServer_MarkupCompile.cache
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\TeleServer.g.resources
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\TeleServer.Properties.Resources.resources
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\TeleServer.exe
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\TeleServer.pdb

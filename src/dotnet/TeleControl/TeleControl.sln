@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeleControl", "TeleControl\TeleControl.csproj", "{8DD1E460-A51E-433C-9058-EA5906D526DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeleServer", "TeleServer\TeleServer.csproj", "{3103F37C-BDE5-4EE2-8205-5625482C2005}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DD1E460-A51E-433C-9058-EA5906D526DC}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{8DD1E460-A51E-433C-9058-EA5906D526DC}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{8DD1E460-A51E-433C-9058-EA5906D526DC}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{8DD1E460-A51E-433C-9058-EA5906D526DC}.Debug|x86.ActiveCfg = Debug|x86
+		{8DD1E460-A51E-433C-9058-EA5906D526DC}.Debug|x86.Build.0 = Debug|x86
+		{8DD1E460-A51E-433C-9058-EA5906D526DC}.Release|Any CPU.ActiveCfg = Release|x86
+		{8DD1E460-A51E-433C-9058-EA5906D526DC}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{8DD1E460-A51E-433C-9058-EA5906D526DC}.Release|Mixed Platforms.Build.0 = Release|x86
+		{8DD1E460-A51E-433C-9058-EA5906D526DC}.Release|x86.ActiveCfg = Release|x86
+		{8DD1E460-A51E-433C-9058-EA5906D526DC}.Release|x86.Build.0 = Release|x86
+		{3103F37C-BDE5-4EE2-8205-5625482C2005}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{3103F37C-BDE5-4EE2-8205-5625482C2005}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{3103F37C-BDE5-4EE2-8205-5625482C2005}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{3103F37C-BDE5-4EE2-8205-5625482C2005}.Debug|x86.ActiveCfg = Debug|x86
+		{3103F37C-BDE5-4EE2-8205-5625482C2005}.Debug|x86.Build.0 = Debug|x86
+		{3103F37C-BDE5-4EE2-8205-5625482C2005}.Release|Any CPU.ActiveCfg = Release|x86
+		{3103F37C-BDE5-4EE2-8205-5625482C2005}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{3103F37C-BDE5-4EE2-8205-5625482C2005}.Release|Mixed Platforms.Build.0 = Release|x86
+		{3103F37C-BDE5-4EE2-8205-5625482C2005}.Release|x86.ActiveCfg = Release|x86
+		{3103F37C-BDE5-4EE2-8205-5625482C2005}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

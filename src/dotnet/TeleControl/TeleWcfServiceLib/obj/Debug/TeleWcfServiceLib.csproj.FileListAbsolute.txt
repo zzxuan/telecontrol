@@ -1,0 +1,6 @@
+E:\git\telecontrol\src\dotnet\TeleControl\TeleWcfServiceLib\bin\Debug\TeleWcfServiceLib.dll.config
+E:\git\telecontrol\src\dotnet\TeleControl\TeleWcfServiceLib\bin\Debug\TeleWcfServiceLib.dll
+E:\git\telecontrol\src\dotnet\TeleControl\TeleWcfServiceLib\bin\Debug\TeleWcfServiceLib.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\TeleWcfServiceLib\obj\Debug\ResolveAssemblyReference.cache
+E:\git\telecontrol\src\dotnet\TeleControl\TeleWcfServiceLib\obj\Debug\TeleWcfServiceLib.dll
+E:\git\telecontrol\src\dotnet\TeleControl\TeleWcfServiceLib\obj\Debug\TeleWcfServiceLib.pdb
