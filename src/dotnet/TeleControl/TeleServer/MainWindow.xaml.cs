@@ -11,11 +11,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TeleServer.ScreenHelps;
 using System.ServiceModel.Web;
-using TeleServer.WcfServer;
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using SocketHelp;
+using ScreenHelp;
+using System.Threading;
 
 namespace TeleServer
 {
@@ -31,12 +32,25 @@ namespace TeleServer
         }
 
         SysTray _Tray;
+        TcpServer server;
         void Init()
         {
             Hide();
             _Tray = new SysTray();
-            ServerDemo.ServerHelp.Server.start();
+            server = new TcpServer();
+            server.Start(20011);
+            Thread th = new Thread(new ThreadStart(SendScreen));
+            th.IsBackground = true;
+            th.Start();
         }
 
+        void SendScreen()
+        {
+            while (true)
+            {
+                server.SendData(ScreenShot.getBitmapBites());
+                Thread.Sleep(1000);
+            }
+        }
     }
 }

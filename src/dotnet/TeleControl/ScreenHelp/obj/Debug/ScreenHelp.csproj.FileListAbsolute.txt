@@ -1,0 +1,4 @@
+D:\work\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\bin\Debug\ScreenHelp.dll
+D:\work\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\bin\Debug\ScreenHelp.pdb
+D:\work\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\obj\Debug\ScreenHelp.dll
+D:\work\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\obj\Debug\ScreenHelp.pdb

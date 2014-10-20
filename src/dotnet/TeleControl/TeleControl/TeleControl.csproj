@@ -93,6 +93,16 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ScreenHelp\ScreenHelp.csproj">
+      <Project>{010F67D9-9FCF-4867-856A-F8B9DFA3FFB2}</Project>
+      <Name>ScreenHelp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocketHelp\SocketHelp.csproj">
+      <Project>{BF00F798-A1F6-4C2F-B01C-8CB053E7E70A}</Project>
+      <Name>SocketHelp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,0 +1,4 @@
+D:\work\git\telecontrol\src\dotnet\TeleControl\SocketHelp\bin\Debug\SocketHelp.dll
+D:\work\git\telecontrol\src\dotnet\TeleControl\SocketHelp\bin\Debug\SocketHelp.pdb
+D:\work\git\telecontrol\src\dotnet\TeleControl\SocketHelp\obj\Debug\SocketHelp.dll
+D:\work\git\telecontrol\src\dotnet\TeleControl\SocketHelp\obj\Debug\SocketHelp.pdb
