@@ -29,3 +29,7 @@ D:\work\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\SocketHelp.p
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleServer\obj\x86\Debug\TeleServer.csprojResolveAssemblyReference.cache
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\ScreenHelp.dll
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\ScreenHelp.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\ScreenHelp.dll
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\SocketHelp.dll
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\ScreenHelp.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\SocketHelp.pdb

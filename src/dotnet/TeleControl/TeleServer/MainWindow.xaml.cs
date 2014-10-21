@@ -48,8 +48,9 @@ namespace TeleServer
         {
             while (true)
             {
-                server.SendData(ScreenShot.getBitmapBites());
-                Thread.Sleep(1000);
+                //ScreenShot.getBitmapBites();
+                server.SendData(ScreenShot.getScreenBites());
+                Thread.Sleep(50);
             }
         }
     }

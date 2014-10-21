@@ -2,3 +2,8 @@ D:\work\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\bin\Debug\ScreenHelp.d
 D:\work\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\bin\Debug\ScreenHelp.pdb
 D:\work\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\obj\Debug\ScreenHelp.dll
 D:\work\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\obj\Debug\ScreenHelp.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\bin\Debug\ScreenHelp.dll
+E:\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\bin\Debug\ScreenHelp.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\obj\Debug\ResolveAssemblyReference.cache
+E:\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\obj\Debug\ScreenHelp.dll
+E:\git\telecontrol\src\dotnet\TeleControl\ScreenHelp\obj\Debug\ScreenHelp.pdb
