@@ -18,6 +18,7 @@ namespace SocketHelp
     {
         public event Closedelegate CloseEvent;
         public event ReciveDatadelegate ReciveEvent;
+        bool isdispose=false;
         Socket _Socket;
         public TcpDataManager(Socket socket)
         {
@@ -32,10 +33,16 @@ namespace SocketHelp
         /// <param name="bytes"></param>
         public void SendData(byte[] bytes)
         {
-            uint len = (uint)(bytes.Length+4);
-            byte[] head = BitConverter.GetBytes(len);
-            byte[] buf = head.Concat(bytes).ToArray();
-            _Socket.Send(buf);
+            try
+            {
+                if (isdispose)
+                    return;
+                uint len = (uint)(bytes.Length + 4);
+                byte[] head = BitConverter.GetBytes(len);
+                byte[] buf = head.Concat(bytes).ToArray();
+                _Socket.Send(buf);
+            }
+            catch { }
         }
 
 
@@ -95,6 +102,7 @@ namespace SocketHelp
             {
                 if (CloseEvent != null)
                     CloseEvent(c);
+                isdispose = true;
                 c.Dispose();
             }
         }

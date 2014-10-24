@@ -102,6 +102,10 @@
       <Project>{BF00F798-A1F6-4C2F-B01C-8CB053E7E70A}</Project>
       <Name>SocketHelp</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TeleEntity\TeleController.csproj">
+      <Project>{0509E92A-4637-475D-9C98-BC223AA78293}</Project>
+      <Name>TeleController</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

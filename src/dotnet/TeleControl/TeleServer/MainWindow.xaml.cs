@@ -17,6 +17,7 @@ using System.ServiceModel.Description;
 using SocketHelp;
 using ScreenHelp;
 using System.Threading;
+using TeleController;
 
 namespace TeleServer
 {
@@ -41,9 +42,27 @@ namespace TeleServer
             //sender = new UdpSender(NetHelp.getIP(), 9998);
             server = new TcpServer();
             server.Start(26598);
+            server.ReciveDataEvent += new ReciveDatadelegate(server_ReciveDataEvent);
             Thread th = new Thread(new ThreadStart(SendScreen));
             th.IsBackground = true;
             th.Start();
+        }
+
+        void server_ReciveDataEvent(System.Net.Sockets.Socket socket, byte[] bytes)
+        {
+            try
+            {
+                switch (bytes[0])
+                {
+                    case TeleContans.CmdMouse:
+                        TeleMouseContrl mouse = new TeleMouseContrl();
+                        mouse.FromBytes(bytes);
+                        mouse.SetMouseEvent();
+                        break;
+                }
+            }
+            catch
+            { }
         }
 
         void SendScreen()

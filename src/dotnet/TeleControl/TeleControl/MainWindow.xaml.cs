@@ -15,6 +15,7 @@ using SocketHelp;
 using ScreenHelp;
 using System.Threading;
 using System.Runtime.InteropServices;
+using TeleController;
 
 namespace TeleControl
 {
@@ -34,6 +35,8 @@ namespace TeleControl
             client = new TcpClient(NetHelp.getIP(), 26598);
             client.ConnectServer();
             client.ReciveEvent += new ReciveDatadelegate(client_ReciveEvent);
+            TeleMouseContrl m = new TeleMouseContrl() { X = 0.5f, Y = 0.5f, TeleMouseEvent = TeleMouseEventEnum.Move };
+            client.SendData(m.ToBytes());
         }
         void client_ReciveEvent(System.Net.Sockets.Socket socket, byte[] bytes)
         {
