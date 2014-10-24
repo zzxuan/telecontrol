@@ -20,7 +20,7 @@ namespace SocketHelp
         public void Start(int port)
         {
             s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建Socket对象
-            IPAddress serverIP = IPAddress.Parse(IPHelp.getIP());
+            IPAddress serverIP = IPAddress.Parse(NetHelp.getIP());
             IPEndPoint server = new IPEndPoint(serverIP, port);    //实例化服务器的IP和端口
             s.Bind(server);
             s.Listen(100);

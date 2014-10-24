@@ -31,34 +31,17 @@ namespace TeleControl
         TcpClient client;
         void Init()
         {
-            client = new TcpClient(IPHelp.getIP(), 20011);
+            client = new TcpClient(NetHelp.getIP(), 26598);
             client.ConnectServer();
             client.ReciveEvent += new ReciveDatadelegate(client_ReciveEvent);
-            Thread th = new Thread(new ThreadStart(showImage)) { IsBackground=true};
-            th.Start();
-            
         }
-       Stack<byte[]> datas=new Stack<byte[]>();
         void client_ReciveEvent(System.Net.Sockets.Socket socket, byte[] bytes)
         {
-            datas.Clear();
-            datas.Push(bytes);
-        }
-        void showImage()
-        {
-            while (true)
+            this.Dispatcher.Invoke(new Action(() =>
             {
-                if (datas.Count > 0)
-                {
-                    byte[] bytes = datas.Pop();
-                    this.Dispatcher.Invoke(new Action(() =>
-                    {
-                        image1.Source = BitmapHelp.BytestoBitmapImage(bytes);
-                    }));
-                }
-                Thread.Sleep(20);
-            }
+                image1.Source = BitmapHelp.BytestoBitmapImage(bytes);
+            }));
         }
-
+       
     }
 }

@@ -32,13 +32,15 @@ namespace TeleServer
         }
 
         SysTray _Tray;
+        //UdpSender sender;
         TcpServer server;
         void Init()
         {
             Hide();
             _Tray = new SysTray();
+            //sender = new UdpSender(NetHelp.getIP(), 9998);
             server = new TcpServer();
-            server.Start(20011);
+            server.Start(26598);
             Thread th = new Thread(new ThreadStart(SendScreen));
             th.IsBackground = true;
             th.Start();

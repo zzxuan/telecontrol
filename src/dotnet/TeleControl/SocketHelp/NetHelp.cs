@@ -7,7 +7,7 @@ using System.Net.Sockets;
 
 namespace SocketHelp
 {
-    public class IPHelp
+    public class NetHelp
     {
         public static string getIP()
         {
