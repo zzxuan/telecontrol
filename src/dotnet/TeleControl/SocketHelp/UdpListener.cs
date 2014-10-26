@@ -22,6 +22,13 @@ namespace SocketHelp
         {
             GroupAddress = IPAddress.Parse(ip);
             GroupPort = port;
+            listener = new UdpClient(GroupPort);
+            try
+            {
+                //组播
+                listener.JoinMulticastGroup(GroupAddress);
+            }
+            catch { }
         }
         Thread th;
         bool isStart = false;
@@ -49,24 +56,13 @@ namespace SocketHelp
 
         void StartListener()
         {
-            listener = new UdpClient(GroupPort);
             IPEndPoint groupEP = new IPEndPoint(GroupAddress, GroupPort);
-            try
+            //listener.Connect(groupEP);
+            while (true)
             {
-                //IPV6，组播
-                listener.JoinMulticastGroup(GroupAddress);
-                //listener.Connect(groupEP);
-                while (true)
-                {
-                    byte[] bytes = listener.Receive(ref groupEP);
-                    if (UdpListenEvent != null)
-                        UdpListenEvent(bytes, groupEP);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-                listener.Close();
+                byte[] bytes = listener.Receive(ref groupEP);
+                if (UdpListenEvent != null)
+                    UdpListenEvent(bytes, groupEP);
             }
         }
     }

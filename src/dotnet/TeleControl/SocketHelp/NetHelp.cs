@@ -9,7 +9,11 @@ namespace SocketHelp
 {
     public class NetHelp
     {
-        public static string getIP()
+        /// <summary>
+        /// 获得本局IP
+        /// </summary>
+        /// <returns></returns>
+        public static string GetIP()
         {
             IPAddress[] arrIPAddresses = Dns.GetHostAddresses(Dns.GetHostName());
             foreach (IPAddress ip in arrIPAddresses)
@@ -20,6 +24,14 @@ namespace SocketHelp
                 }
             }
             return "127.0.0.1";
+        }
+        /// <summary>
+        /// 返回主机名
+        /// </summary>
+        /// <returns></returns>
+        public static string GetHostName()
+        {
+            return Dns.GetHostName();
         }
     }
 }

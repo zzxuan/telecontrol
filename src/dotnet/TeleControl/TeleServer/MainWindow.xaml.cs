@@ -33,46 +33,13 @@ namespace TeleServer
         }
 
         SysTray _Tray;
-        //UdpSender sender;
-        TcpServer server;
         void Init()
         {
             Hide();
             _Tray = new SysTray();
             //sender = new UdpSender(NetHelp.getIP(), 9998);
-            server = new TcpServer();
-            server.Start(26598);
-            server.ReciveDataEvent += new ReciveDatadelegate(server_ReciveDataEvent);
-            Thread th = new Thread(new ThreadStart(SendScreen));
-            th.IsBackground = true;
-            th.Start();
+            TeleService.InstanceService.Init();
         }
 
-        void server_ReciveDataEvent(System.Net.Sockets.Socket socket, byte[] bytes)
-        {
-            try
-            {
-                switch (bytes[0])
-                {
-                    case TeleContans.CmdMouse:
-                        TeleMouseContrl mouse = new TeleMouseContrl();
-                        mouse.FromBytes(bytes);
-                        mouse.SetMouseEvent();
-                        break;
-                }
-            }
-            catch
-            { }
-        }
-
-        void SendScreen()
-        {
-            while (true)
-            {
-                //ScreenShot.getBitmapBites();
-                server.SendData(ScreenShot.getScreenBites());
-                Thread.Sleep(50);
-            }
-        }
     }
 }

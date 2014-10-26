@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketHelp", "SocketHelp\So
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeleController", "TeleEntity\TeleController.csproj", "{0509E92A-4637-475D-9C98-BC223AA78293}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "udpTest1", "udpTest1\udpTest1.csproj", "{025013E0-09C3-4A54-94F3-D02695234F5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdpTest2", "UdpTest2\UdpTest2.csproj", "{3A858D0D-D68B-4152-AD9E-E65C45B28757}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +75,26 @@ Global
 		{0509E92A-4637-475D-9C98-BC223AA78293}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0509E92A-4637-475D-9C98-BC223AA78293}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0509E92A-4637-475D-9C98-BC223AA78293}.Release|x86.ActiveCfg = Release|Any CPU
+		{025013E0-09C3-4A54-94F3-D02695234F5C}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{025013E0-09C3-4A54-94F3-D02695234F5C}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{025013E0-09C3-4A54-94F3-D02695234F5C}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{025013E0-09C3-4A54-94F3-D02695234F5C}.Debug|x86.ActiveCfg = Debug|x86
+		{025013E0-09C3-4A54-94F3-D02695234F5C}.Debug|x86.Build.0 = Debug|x86
+		{025013E0-09C3-4A54-94F3-D02695234F5C}.Release|Any CPU.ActiveCfg = Release|x86
+		{025013E0-09C3-4A54-94F3-D02695234F5C}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{025013E0-09C3-4A54-94F3-D02695234F5C}.Release|Mixed Platforms.Build.0 = Release|x86
+		{025013E0-09C3-4A54-94F3-D02695234F5C}.Release|x86.ActiveCfg = Release|x86
+		{025013E0-09C3-4A54-94F3-D02695234F5C}.Release|x86.Build.0 = Release|x86
+		{3A858D0D-D68B-4152-AD9E-E65C45B28757}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{3A858D0D-D68B-4152-AD9E-E65C45B28757}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{3A858D0D-D68B-4152-AD9E-E65C45B28757}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{3A858D0D-D68B-4152-AD9E-E65C45B28757}.Debug|x86.ActiveCfg = Debug|x86
+		{3A858D0D-D68B-4152-AD9E-E65C45B28757}.Debug|x86.Build.0 = Debug|x86
+		{3A858D0D-D68B-4152-AD9E-E65C45B28757}.Release|Any CPU.ActiveCfg = Release|x86
+		{3A858D0D-D68B-4152-AD9E-E65C45B28757}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{3A858D0D-D68B-4152-AD9E-E65C45B28757}.Release|Mixed Platforms.Build.0 = Release|x86
+		{3A858D0D-D68B-4152-AD9E-E65C45B28757}.Release|x86.ActiveCfg = Release|x86
+		{3A858D0D-D68B-4152-AD9E-E65C45B28757}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

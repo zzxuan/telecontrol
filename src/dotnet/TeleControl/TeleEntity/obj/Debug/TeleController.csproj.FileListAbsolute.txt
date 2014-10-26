@@ -2,3 +2,8 @@ D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\bin\Debug\TeleControll
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\bin\Debug\TeleController.pdb
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\obj\Debug\TeleController.dll
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\obj\Debug\TeleController.pdb
+D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\bin\Debug\ScreenHelp.dll
+D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\bin\Debug\SocketHelp.dll
+D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\bin\Debug\ScreenHelp.pdb
+D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\bin\Debug\SocketHelp.pdb
+D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\obj\Debug\TeleController.csprojResolveAssemblyReference.cache

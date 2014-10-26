@@ -9,6 +9,13 @@ namespace SocketHelp
 {
     public class UdpSender
     {
+        public static void Send(string ip, int port, byte[] bytes)
+        {
+            UdpSender sen = new UdpSender(ip, port);
+            sen.Send(bytes);
+            sen.Close();
+        }
+
         private IPAddress GroupAddress;
         private int GroupPort;
         UdpClient sender;
@@ -21,25 +28,10 @@ namespace SocketHelp
             groupEP = new IPEndPoint(GroupAddress, GroupPort);
            
         }
-        byte[] bys = new byte[1024];
+
         public void Send(byte[] bytes)
         {
-            try
-            {
-                int i=0;
-
-                for (; i < bytes.Length; i += bys.Length)
-                {
-                    Array.Copy(bytes, i, bys, 0, bys.Length);
-                    sender.Send(bys, bys.Length, groupEP);
-                }
-                Array.Copy(bytes, i, bys, 0, bytes.Length-i);
-                sender.Send(bys, bytes.Length - i, groupEP);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
+            sender.Send(bytes,bytes.Length,groupEP);
         }
         public void Close()
         {
