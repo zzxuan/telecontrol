@@ -17,6 +17,7 @@ using System.ServiceModel.Description;
 using SocketHelp;
 using ScreenHelp;
 using System.Threading;
+using TeleController;
 
 namespace TeleServer
 {
@@ -32,28 +33,13 @@ namespace TeleServer
         }
 
         SysTray _Tray;
-        //UdpSender sender;
-        TcpServer server;
         void Init()
         {
             Hide();
             _Tray = new SysTray();
             //sender = new UdpSender(NetHelp.getIP(), 9998);
-            server = new TcpServer();
-            server.Start(26598);
-            Thread th = new Thread(new ThreadStart(SendScreen));
-            th.IsBackground = true;
-            th.Start();
+            TeleService.InstanceService.Init();
         }
 
-        void SendScreen()
-        {
-            while (true)
-            {
-                //ScreenShot.getBitmapBites();
-                server.SendData(ScreenShot.getScreenBites());
-                Thread.Sleep(50);
-            }
-        }
     }
 }

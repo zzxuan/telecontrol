@@ -31,3 +31,6 @@ E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\ScreenHelp.dll
 E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\SocketHelp.dll
 E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\ScreenHelp.pdb
 E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\SocketHelp.pdb
+D:\work\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleController.dll
+D:\work\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleController.pdb
+D:\work\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleControl.exe.config

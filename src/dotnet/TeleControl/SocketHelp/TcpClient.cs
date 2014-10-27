@@ -7,14 +7,14 @@ using System.Net.Sockets;
 
 namespace SocketHelp
 {
-    public class TcpClient
+    public class TcpClientHelp
     {
         public event Closedelegate CloseEvent;
         public event ReciveDatadelegate ReciveEvent;
         Socket _Socket;
         IPEndPoint _Ipe;
         TcpDataManager _Dm;
-        public TcpClient(string ip, int port)
+        public TcpClientHelp(string ip, int port)
         {
             IPAddress ipadd = IPAddress.Parse(ip);
             _Ipe = new IPEndPoint(ipadd, port);//把ip和端口转化为IPEndpoint实例 
@@ -35,6 +35,12 @@ namespace SocketHelp
             {
                 return false;
             }
+        }
+
+        public void Close()
+        {
+            _Socket.Close();
+            _Socket.Dispose();
         }
 
         void _Dm_CloseEvent(Socket socket)
