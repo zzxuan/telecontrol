@@ -5,3 +5,10 @@ D:\work\git\telecontrol\src\dotnet\TeleControl\UdpTest2\bin\Debug\SocketHelp.pdb
 D:\work\git\telecontrol\src\dotnet\TeleControl\UdpTest2\obj\x86\Debug\UdpTest2.csprojResolveAssemblyReference.cache
 D:\work\git\telecontrol\src\dotnet\TeleControl\UdpTest2\obj\x86\Debug\UdpTest2.exe
 D:\work\git\telecontrol\src\dotnet\TeleControl\UdpTest2\obj\x86\Debug\UdpTest2.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\UdpTest2\bin\Debug\UdpTest2.exe
+E:\git\telecontrol\src\dotnet\TeleControl\UdpTest2\bin\Debug\UdpTest2.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\UdpTest2\bin\Debug\SocketHelp.dll
+E:\git\telecontrol\src\dotnet\TeleControl\UdpTest2\bin\Debug\SocketHelp.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\UdpTest2\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\git\telecontrol\src\dotnet\TeleControl\UdpTest2\obj\x86\Debug\UdpTest2.exe
+E:\git\telecontrol\src\dotnet\TeleControl\UdpTest2\obj\x86\Debug\UdpTest2.pdb

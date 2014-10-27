@@ -34,3 +34,6 @@ E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\SocketHelp.pdb
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleController.dll
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleController.pdb
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleControl.exe.config
+E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleControl.exe.config
+E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleController.dll
+E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleController.pdb

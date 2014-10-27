@@ -7,3 +7,12 @@ D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\bin\Debug\SocketHelp.d
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\bin\Debug\ScreenHelp.pdb
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\bin\Debug\SocketHelp.pdb
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleEntity\obj\Debug\TeleController.csprojResolveAssemblyReference.cache
+E:\git\telecontrol\src\dotnet\TeleControl\TeleController\bin\Debug\TeleController.dll
+E:\git\telecontrol\src\dotnet\TeleControl\TeleController\bin\Debug\TeleController.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\TeleController\bin\Debug\ScreenHelp.dll
+E:\git\telecontrol\src\dotnet\TeleControl\TeleController\bin\Debug\SocketHelp.dll
+E:\git\telecontrol\src\dotnet\TeleControl\TeleController\bin\Debug\ScreenHelp.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\TeleController\bin\Debug\SocketHelp.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\TeleController\obj\Debug\ResolveAssemblyReference.cache
+E:\git\telecontrol\src\dotnet\TeleControl\TeleController\obj\Debug\TeleController.dll
+E:\git\telecontrol\src\dotnet\TeleControl\TeleController\obj\Debug\TeleController.pdb
