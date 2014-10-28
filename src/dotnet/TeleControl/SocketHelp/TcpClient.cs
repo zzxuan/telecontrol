@@ -31,7 +31,7 @@ namespace SocketHelp
                 _Dm.CloseEvent += new Closedelegate(_Dm_CloseEvent);
                 return true;
             }
-            catch 
+            catch(Exception e)
             {
                 return false;
             }

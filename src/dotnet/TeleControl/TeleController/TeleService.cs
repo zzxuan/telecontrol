@@ -59,8 +59,13 @@ namespace TeleController
             {
                 if (Controls.Count > 0)
                 {
-                        foreach (var socket in Controls)
-                            _Server.SendData(socket,ScreenShot.getScreenBites());
+                    int count = Controls.Count;
+                    byte[] bytes = ScreenShot.getScreenBites();
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (i < Controls.Count)
+                            _Server.SendData(Controls[i], bytes);
+                    }
                 }
                 Thread.Sleep(50);
             }
@@ -73,13 +78,17 @@ namespace TeleController
         /// <param name="bytes"></param>
         void _Server_ReciveDataEvent(System.Net.Sockets.Socket socket, byte[] bytes)
         {
+            //Logger.Trace("原始数据"+Convert.ToString( bytes[0],16));
             switch (bytes[0])
             {
                 case TeleContans.CmdStart://客户端问答
                     {
+
                         lock (Controls)
                             if (!Controls.Contains(socket))
+                            {
                                 Controls.Add(socket);
+                            }
                     }
                     break;
                 case TeleContans.CmdStop:

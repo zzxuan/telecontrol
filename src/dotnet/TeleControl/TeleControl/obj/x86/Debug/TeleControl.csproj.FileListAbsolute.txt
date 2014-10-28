@@ -37,3 +37,8 @@ D:\work\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleControl
 E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleControl.exe.config
 E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleController.dll
 E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\bin\Debug\TeleController.pdb
+E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\obj\x86\Debug\TeleControl_MarkupCompile.lref
+E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\obj\x86\Debug\Themes\Generic.baml
+E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\obj\x86\Debug\CotrlWin.baml
+E:\git\telecontrol\src\dotnet\TeleControl\TeleControl\obj\x86\Debug\CotrlWin.g.cs

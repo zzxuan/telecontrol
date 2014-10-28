@@ -52,6 +52,7 @@ namespace SocketHelp
         /// <param name="cilentsocket"></param>
         void reciveClient(object cilentsocket)
         {
+            Thread.Sleep(10);
             Socket c = (Socket)cilentsocket;
             try
             {
@@ -63,6 +64,9 @@ namespace SocketHelp
                 while (true)
                 {
                     int n = c.Receive(bytes);
+                    if (n == 0)
+                        continue;
+
                     byte[] b = new byte[n];
                     Array.Copy(bytes, 0, b, 0, n);
                     buf = buf.Concat(b).ToArray();
@@ -78,9 +82,12 @@ namespace SocketHelp
                         {
                             byte[] data = new byte[len];
                             Array.Copy(buf, 4, data, 0, len-4);
+                            
                             //--------------
                             if (ReciveEvent != null)
+                            {
                                 ReciveEvent(c, data);
+                            }
                             //--------------
                             m += len;
                             if (buf.Length - m < len)
@@ -96,8 +103,10 @@ namespace SocketHelp
                     }
                 }
             }
-            catch 
-            { }
+            catch(Exception ex)
+            {
+                //Logger.Trace(ex);
+            }
             finally
             {
                 if (CloseEvent != null)

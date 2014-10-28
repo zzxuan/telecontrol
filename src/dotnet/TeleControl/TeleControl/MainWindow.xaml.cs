@@ -29,23 +29,6 @@ namespace TeleControl
             InitializeComponent();
             Init();
         }
-        //TcpClientHelp client;
-        //void Init()
-        //{
-        //    client = new TcpClientHelp(NetHelp.GetIP(), 26598);
-        //    client.ConnectServer();
-        //    client.ReciveEvent += new ReciveDatadelegate(client_ReciveEvent);
-        //    TeleMouseContrl m = new TeleMouseContrl() { X = 0.5f, Y = 0.5f, TeleMouseEvent = TeleMouseEventEnum.Move };
-        //    client.SendData(m.ToBytes());
-        //}
-        //void client_ReciveEvent(System.Net.Sockets.Socket socket, byte[] bytes)
-        //{
-        //    this.Dispatcher.Invoke(new Action(() =>
-        //    {
-        //        image1.Source = BitmapHelp.BytestoBitmapImage(bytes);
-        //    }));
-        //}
-
         UdpListener listener;
         int _ClientPort = 26598;
         void Init()
@@ -53,6 +36,10 @@ namespace TeleControl
             listener = new UdpListener(NetHelp.GetIP(), _ClientPort);
             listener.StartListen();
             listener.UdpListenEvent += new UdpListener.UdpListenerdleteget(listener_UdpListenEvent);
+            SendServerMsg();
+        }
+        void SendServerMsg()
+        {
             byte[] cport = BitConverter.GetBytes(_ClientPort);
             byte[] b = new byte[] { TeleContans.MsgClientAsk };
             UdpSender.Send(TeleContans.UdpIP, TeleContans.UdpPort, b.Concat(cport).ToArray());
@@ -66,36 +53,46 @@ namespace TeleControl
             {
                 case TeleContans.MsgString:
                     string js = Encoding.UTF8.GetString(buf);
-                    this.Dispatcher.Invoke(new Action(() => {
-                        listBox1.Items.Add(js);
-                    }));
-                    
+                    AddItem(js);
                     break;
             }
         }
-        TcpClientHelp client;
-        private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if(client!=null)
-            {
-                client.Close();
-            }
-            string ss = listBox1.SelectedItem.ToString();
-            ServerMsgInfo info = ServerMsgInfo.CreatFromJsonString(ss);
-            client = new TcpClientHelp(info.ServerIP, info.ServerPort);
-            client.ConnectServer();
-            client.ReciveEvent += new ReciveDatadelegate(client_ReciveEvent);
-            client.SendData(new byte[] {TeleContans.CmdStart });
-        }
 
-        void client_ReciveEvent(System.Net.Sockets.Socket socket, byte[] bytes)
+        void AddItem(string js)
         {
             this.Dispatcher.Invoke(new Action(() =>
             {
-                image1.Source = BitmapHelp.BytestoBitmapImage(bytes);
+                ServerMsgInfo info = ServerMsgInfo.CreatFromJsonString(js);
+                Uri uri = new Uri("/TeleControl;component/Images/cmputer.png", UriKind.Relative);
+                CustomListItem clist = new CustomListItem()
+                {
+                    IcoSource = new BitmapImage(uri),
+                    ItemTitle = info.HostName,
+                    ItemDesc = info.ServerIP + ":" + info.ServerPort,
+                    Obj = info
+                };
+                clist.MouseDoubleClick += new MouseButtonEventHandler(clist_MouseDoubleClick);
+                listBox1.Items.Add(clist);
             }));
         }
 
+        void clist_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            CustomListItem clist = sender as CustomListItem;
+            if (clist != null)
+            {
+                ServerMsgInfo info = clist.Obj as ServerMsgInfo;
+                if (info != null)
+                {
+                    new CotrlWin(info).Show();
+                }
+            }
+        }
 
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            listBox1.Items.Clear();
+            SendServerMsg();
+        }
     }
 }
