@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.IO;
 
 namespace SocketHelp
 {
@@ -15,6 +16,11 @@ namespace SocketHelp
         /// <returns></returns>
         public static string GetIP()
         {
+            string ipstr="";
+            if (readIPConfig(ref ipstr))
+            {
+                return ipstr;
+            }
             IPAddress[] arrIPAddresses = Dns.GetHostAddresses(Dns.GetHostName());
             foreach (IPAddress ip in arrIPAddresses)
             {
@@ -32,6 +38,25 @@ namespace SocketHelp
         public static string GetHostName()
         {
             return Dns.GetHostName();
+        }
+
+        public static bool readIPConfig(ref string ip)
+        {
+            string filepath = AppDomain.CurrentDomain.BaseDirectory + "IPConfig.ini";
+            if (!File.Exists(filepath))
+            {
+                return false;
+            }
+            StreamReader sr = new StreamReader(filepath);
+            string s = sr.ReadLine();
+            string[] ss = s.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+            if (ss.Length > 1 && ss[1] == "1")
+            {
+                s = sr.ReadLine();
+                ip = s.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                return true;
+            }
+            return false;
         }
     }
 }

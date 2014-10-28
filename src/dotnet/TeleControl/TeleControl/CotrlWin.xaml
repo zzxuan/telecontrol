@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="CotrlWin" Height="500" Width="779" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Image Name="image1" Stretch="Fill" MouseLeftButtonUp="image1_MouseLeftButtonUp" MouseRightButtonDown="image1_MouseRightButtonDown" Margin="0,33,0,0" />
-        <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="21,12,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+        <Image Name="image1" Stretch="Fill" MouseLeftButtonUp="image1_MouseLeftButtonUp" MouseRightButtonDown="image1_MouseRightButtonDown" />
     </Grid>
 </Window>

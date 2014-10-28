@@ -13,7 +13,7 @@ namespace udpTest1
         
         static void Main(string[] args)
         {
-            UdpListener li = new UdpListener("192.168.0.10", 53535);
+            UdpListener li = new UdpListener("225.0.0.12", 53535);
             li.StartListen();
             li.UdpListenEvent += new UdpListener.UdpListenerdleteget(li_UdpListenEvent);
 

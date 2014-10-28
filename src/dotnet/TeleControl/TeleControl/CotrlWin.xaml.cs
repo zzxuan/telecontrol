@@ -39,11 +39,6 @@ namespace TeleControl
         {
             this.Dispatcher.Invoke(new Action(() =>
             {
-                if (tt)
-                {
-                    MessageBox.Show("sda");
-                    tt = false;
-                }
                 image1.Source = BitmapHelp.BytestoBitmapImage(bytes);
             }));
         }
@@ -107,13 +102,11 @@ namespace TeleControl
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            //base.OnMouseMove(e);
-            //if()
-        }
-        bool tt = false;
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            tt = true;
+            base.OnMouseMove(e);
+            if (Mouse.LeftButton == MouseButtonState.Pressed || Mouse.RightButton == MouseButtonState.Pressed)
+            {
+                SendMouseCmd(TeleMouseEventEnum.Move);
+            }
         }
     }
 }

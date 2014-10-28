@@ -13,7 +13,7 @@ namespace UdpTest2
         {
             while (true)
             {
-                UdpSender.Send(NetHelp.GetIP(), 53535, Encoding.Default.GetBytes("sdaffffa"));
+                UdpSender.Send("225.0.0.12", 53535, Encoding.Default.GetBytes("sdaffffa"));
                 Console.WriteLine("已发送");
                 Thread.Sleep(500);
             }
