@@ -22,11 +22,14 @@ namespace SocketHelp
         IPEndPoint groupEP;
         public UdpSender(string ip, int port)
         {
-            GroupAddress = IPAddress.Parse(ip);
-            GroupPort = port;
-            sender = new UdpClient();
-            groupEP = new IPEndPoint(GroupAddress, GroupPort);
-           
+            try
+            {
+                GroupAddress = IPAddress.Parse(ip);
+                GroupPort = port;
+                sender = new UdpClient();
+                groupEP = new IPEndPoint(GroupAddress, GroupPort);
+            }
+            catch { }
         }
 
         public void Send(byte[] bytes)
