@@ -11,12 +11,15 @@ import com.socket.util.UdpListener;
 import com.socket.util.UdpListener.IreciveNotify;
 import com.socket.util.UdpSender;
 import com.telecontrol.teleController.ServerMsgInfo;
+import com.telecontrol.teleController.TeleContans;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.util.Xml.Encoding;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,6 +45,23 @@ public class MainActivity extends Activity {
 		udpInit();
 	}
 
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		System.exit(0);
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if(keyCode == KeyEvent.KEYCODE_BACK){
+			//System.exit(0);
+			//return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -70,6 +90,7 @@ public class MainActivity extends Activity {
 	Button button;
 
 	void init() {
+		Log.i("", "telecc:" + "初始化");
 		button = (Button) findViewById(R.id.button1);
 		button.setOnClickListener(new OnClickListener() {
 
@@ -80,9 +101,13 @@ public class MainActivity extends Activity {
 			}
 		});
 		edit = (EditText) findViewById(R.id.editText1);
-		listAdapter = new MyListAdapter(this);
 		listView = (ListView) findViewById(R.id.listView1);
-		listView.setAdapter(listAdapter);
+		if (listAdapter == null) {
+			listAdapter = new MyListAdapter(this);
+			listView.setAdapter(listAdapter);
+			Log.i("", "telecc:" + "setAdapter");
+		}
+
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -105,7 +130,7 @@ public class MainActivity extends Activity {
 	 * 进入下一个页面
 	 */
 	void enterNext() {
-		String ip=edit.getText().toString();
+		String ip = edit.getText().toString();
 		try {
 			InetAddress addr = InetAddress.getByName(ip);
 			Intent intent = new Intent(this, TeleContrlActivity.class);
@@ -115,7 +140,7 @@ public class MainActivity extends Activity {
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
+
 		}
 	}
 
@@ -133,7 +158,9 @@ public class MainActivity extends Activity {
 						public void run() {
 							String string = new String(buf);
 							ServerMsgInfo msgInfo = new ServerMsgInfo(string);
-							Toast.makeText(MainActivity.this, msgInfo.getHostName(), Toast.LENGTH_SHORT).show();
+							Toast.makeText(MainActivity.this,
+									msgInfo.getHostName(), Toast.LENGTH_SHORT)
+									.show();
 							listAdapter.addItem(msgInfo.getHostName(),
 									msgInfo.getServerIP(), msgInfo);
 						}

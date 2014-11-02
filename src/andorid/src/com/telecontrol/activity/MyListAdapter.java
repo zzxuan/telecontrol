@@ -8,6 +8,7 @@ import com.example.telecontrol.R;
     
 import android.R.integer;
 import android.content.Context;    
+import android.util.Log;
 import android.view.LayoutInflater;    
 import android.view.View;    
 import android.view.ViewGroup;    
@@ -18,7 +19,8 @@ import android.widget.TextView;
     
 public class MyListAdapter extends BaseAdapter {    
     private LayoutInflater mInflater;    
-    private List<Map<String, Object>> mData;    
+    //private List<Map<String, Object>> mData;    
+    private ArrayList<MidData> midDatas=new ArrayList<MyListAdapter.MidData>();
     
     public MyListAdapter(Context context) {    
         mInflater = LayoutInflater.from(context);    
@@ -26,35 +28,38 @@ public class MyListAdapter extends BaseAdapter {
     }    
     
     public void addItem(String title,String info,Object obj) {
-    	Map<String, Object> map = new HashMap<String, Object>();    
-        map.put("title", title);    
-        map.put("info", info); 
-        map.put("obj", obj);
-        mData.add(map);
+        MidData midData=new MidData();
+        midData.titleString=title;
+        midData.info=info;
+        midData.object=obj;
+        midDatas.add(midData);
         notifyDataSetChanged();
+        //Log.i("list", "telecc:"+title+","+midDatas);
 	}
     
     public Object getObject(int n) {
-		if(mData.size()>n)
+		if(midDatas.size()>n)
 		{
-			return mData.get(n).get("obj");
+			return midDatas.get(n).object;
 		}
 		return null;
 	}
     
     public void clearItems() {
-    	mData.clear();
+    	midDatas.clear();
+    	//Log.i("list", "telecc: 清理"+midDatas.size());
     	notifyDataSetChanged();
 	}
     
     //初始化    
     private void init() {    
-        mData=new ArrayList<Map<String, Object>>();    
+        
     }    
     
     @Override    
     public int getCount() {    
-        return mData.size();    
+    	//Log.i("list", "telecc:Count="+midDatas.size()+":"+midDatas);
+        return midDatas.size();    
     }    
     
     @Override    
@@ -80,8 +85,8 @@ public class MyListAdapter extends BaseAdapter {
         } else {    
             holder = (ViewHolder) convertView.getTag();    
         }    
-        holder.title.setText(mData.get(position).get("title").toString());    
-        holder.info.setText(mData.get(position).get("info").toString());
+        holder.title.setText(midDatas.get(position).titleString.toString());    
+        holder.info.setText(midDatas.get(position).info.toString());
         return convertView;    
     }    
     
@@ -89,4 +94,17 @@ public class MyListAdapter extends BaseAdapter {
         public TextView title;    
         public TextView info; 
     }    
+    
+    public class MidData {
+    	public String titleString;
+    	public String info;
+    	public Object object;
+    	
+    	@Override
+    	public String toString() {
+    		// TODO Auto-generated method stub
+    		return "["+titleString+"]";
+    	}
+	}
+    
 }  

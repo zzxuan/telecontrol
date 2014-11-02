@@ -75,9 +75,11 @@ namespace TeleController
             switch (_TeleMouseEvent)
             {
                 case TeleMouseEventEnum.LeftDown:
+                    SetCursorPos(x, y);
                     mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0);
                     break;
                 case TeleMouseEventEnum.LeftUp:
+                    SetCursorPos(x, y);
                     mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0);
                     break;
                 case TeleMouseEventEnum.Move:
@@ -87,6 +89,8 @@ namespace TeleController
                     mouse_event(MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0);
                     break;
                 case TeleMouseEventEnum.RightUp:
+                    SetCursorPos(x, y);
+                    //mouse_event(MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0);
                     mouse_event(MOUSEEVENTF_RIGHTUP, x, y, 0, 0);
                     break;
             }

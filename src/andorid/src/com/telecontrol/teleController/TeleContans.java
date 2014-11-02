@@ -1,4 +1,4 @@
-package com.telecontrol.activity;
+package com.telecontrol.teleController;
 
 public class TeleContans {
 	public static final String UdpIP = "230.0.0.136";
