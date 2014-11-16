@@ -25,13 +25,13 @@ namespace TeleControl
         public CotrlWin(ServerMsgInfo info)
         {
             InitializeComponent();
-
+            Title = info.HostName;
             client = new TcpClientHelp(info.ServerIP, info.ServerPort);
             if (client.ConnectServer())
             {
                 client.ReciveEvent += new ReciveDatadelegate(client_ReciveEvent);
                 client.SendData(new byte[] { TeleContans.CmdStart });
-                Logger.Trace("开始");
+                //Logger.Trace("开始");
             }
         }
 

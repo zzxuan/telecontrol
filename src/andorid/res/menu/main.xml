@@ -7,10 +7,10 @@
         android:title="刷新"
         android:titleCondensed="刷新"/>
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_about"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:showAsAction="always"
+        android:title="关于"/>
     
 
 </menu>

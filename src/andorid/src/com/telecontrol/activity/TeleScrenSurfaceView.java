@@ -1,6 +1,7 @@
 package com.telecontrol.activity;
 
 import com.socket.util.TcpSocketClient;
+import com.socket.util.TcpSocketClient.ConnectState;
 import com.socket.util.TcpSocketClient.recivedataEvent;
 import com.telecontrol.teleController.TeleContans;
 import com.telecontrol.teleController.TeleMouseContrl;
@@ -8,6 +9,7 @@ import com.telecontrol.teleController.TeleMouseContrl.TeleMouseEventEnum;
 
 import android.R.integer;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -79,6 +81,32 @@ public class TeleScrenSurfaceView extends SurfaceView implements Callback,
 				// TODO Auto-generated method stub
 				draw(bytes);
 			}
+		}, new ConnectState() {
+
+			@Override
+			public void notifyConnet(final int statetype) {
+				// TODO Auto-generated method stub
+				((TeleContrlActivity) context).runOnUiThread(new Runnable() {
+
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						if (statetype == 1) {
+							Toast.makeText(context, "连接失败",
+									Toast.LENGTH_SHORT).show();
+							((TeleContrlActivity) context).finish();
+						} else if (statetype == 2) {
+							Toast.makeText(context, "连接中断",
+									Toast.LENGTH_SHORT).show();
+						} else if (statetype == 3) {
+							Toast.makeText(context, "发送失败",
+									Toast.LENGTH_SHORT).show();
+						}
+
+					}
+				});
+
+			}
 		});
 		tcpSocketClient.connect();
 		try {
@@ -144,8 +172,8 @@ public class TeleScrenSurfaceView extends SurfaceView implements Callback,
 
 	void longclick() {
 		Log.i("", "longclick");
-//		mevent = TeleMouseEventEnum.RightDown;
-//		sendcmd();
+		// mevent = TeleMouseEventEnum.RightDown;
+		// sendcmd();
 		mevent = TeleMouseEventEnum.RightUp;
 		sendcmd();
 	}
@@ -155,7 +183,7 @@ public class TeleScrenSurfaceView extends SurfaceView implements Callback,
 	int mevent;
 
 	void sendcmd() {
-		//tcpSocketClient.send(getBytes(TeleMouseEventEnum.Move));
+		// tcpSocketClient.send(getBytes(TeleMouseEventEnum.Move));
 		tcpSocketClient.send(getBytes(mevent));
 	}
 

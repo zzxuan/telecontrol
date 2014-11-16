@@ -1,0 +1,8 @@
+﻿<Window x:Class="TeleAgent.Settingwin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="远程控制设置" Height="83" Width="189" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+    <Grid>
+        <CheckBox Click="checkBox1_Click" Content="开机启动" Height="16" HorizontalAlignment="Left" Margin="12,12,0,0" Name="checkBox1" VerticalAlignment="Top" />
+    </Grid>
+</Window>

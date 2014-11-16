@@ -17,6 +17,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.util.Log;
 import android.util.Xml.Encoding;
 import android.view.KeyEvent;
@@ -36,11 +38,14 @@ public class MainActivity extends Activity {
 
 	int clientPort = 35336;
 	int _serverPort = 54322;
-
+	SharedPreferences sharedPreferences;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		setTitle("XXF桌面");
+		sharedPreferences=getSharedPreferences("xxftele", 0);
 		init();
 		udpInit();
 	}
@@ -77,7 +82,9 @@ public class MainActivity extends Activity {
 			sendServerMsg();
 			Toast.makeText(this, "刷新完成", Toast.LENGTH_SHORT).show();
 			break;
-
+		case R.id.action_about://关于
+			Toast.makeText(this, "作者邮箱:xiaoxuanfengzzx@163.com", Toast.LENGTH_SHORT).show();
+			break;
 		default:
 			break;
 		}
@@ -101,6 +108,10 @@ public class MainActivity extends Activity {
 			}
 		});
 		edit = (EditText) findViewById(R.id.editText1);
+		edit.setHint("请输入或选择IP");
+		String ip=sharedPreferences.getString("edit","");
+		edit.setText(ip);
+		
 		listView = (ListView) findViewById(R.id.listView1);
 		if (listAdapter == null) {
 			listAdapter = new MyListAdapter(this);
@@ -131,11 +142,15 @@ public class MainActivity extends Activity {
 	 */
 	void enterNext() {
 		String ip = edit.getText().toString();
+		
 		try {
 			InetAddress addr = InetAddress.getByName(ip);
 			Intent intent = new Intent(this, TeleContrlActivity.class);
 			intent.putExtra("ip", ip);
 			intent.putExtra("port", _serverPort);
+			Editor edit=sharedPreferences.edit();
+			edit.putString("edit", ip);
+			edit.commit();
 			startActivity(intent);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block

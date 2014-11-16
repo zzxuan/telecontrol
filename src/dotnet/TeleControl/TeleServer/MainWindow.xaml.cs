@@ -32,11 +32,11 @@ namespace TeleServer
             Init();
         }
 
-        SysTray _Tray;
+        //SysTray _Tray;
         void Init()
         {
             Hide();
-            _Tray = new SysTray();
+            //_Tray = new SysTray();
             //sender = new UdpSender(NetHelp.getIP(), 9998);
             TeleService.InstanceService.Init();
         }

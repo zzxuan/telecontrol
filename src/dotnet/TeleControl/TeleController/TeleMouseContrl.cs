@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Windows;
+using SocketHelp;
 
 namespace TeleController
 {
@@ -63,7 +64,8 @@ namespace TeleController
             _TeleMouseEvent = (TeleMouseEventEnum)BitConverter.ToInt32(bytes, 9);
             return true;
         }
-
+        int t = 0;
+        TeleMouseEventEnum preevent = TeleMouseEventEnum.Move;
         public void SetMouseEvent()
         {
             double W = SystemParameters.PrimaryScreenWidth;//得到屏幕整体宽度
@@ -72,10 +74,12 @@ namespace TeleController
             int x =(int)( W * _X);
             int y = (int)(H * _Y);
 
+           // Logger.Trace(_TeleMouseEvent.ToString());
+
             switch (_TeleMouseEvent)
             {
                 case TeleMouseEventEnum.LeftDown:
-                    SetCursorPos(x, y);
+                     SetCursorPos(x, y);
                     mouse_event(MOUSEEVENTF_LEFTDOWN, x, y, 0, 0);
                     break;
                 case TeleMouseEventEnum.LeftUp:
@@ -86,14 +90,18 @@ namespace TeleController
                     SetCursorPos(x, y);
                     break;
                 case TeleMouseEventEnum.RightDown:
+                    SetCursorPos(x, y);
                     mouse_event(MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0);
                     break;
                 case TeleMouseEventEnum.RightUp:
+                    if (preevent == TeleMouseEventEnum.LeftDown)
+                        mouse_event(MOUSEEVENTF_LEFTUP, x, y, 0, 0);
                     SetCursorPos(x, y);
                     //mouse_event(MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0);
                     mouse_event(MOUSEEVENTF_RIGHTUP, x, y, 0, 0);
                     break;
             }
+            preevent = _TeleMouseEvent;
         }
 
 

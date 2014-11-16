@@ -127,6 +127,10 @@ namespace SocketHelp
         public static void Trace(string info)
         {
             new AsyncLogInfo(BeginTaceInfo).BeginInvoke(info, null, null);
+            if (sw == null)
+                sw = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "log.txt");
+            sw.WriteLine(string.Format(trace_info, DateTime.Now.ToString("HH:mm:ss fff")) + " : "+info);
+            sw.Flush();
         }
 
         public static string ToHexString(byte[] bytes) // 0xae00cf => "AE00CF "
@@ -242,7 +246,7 @@ namespace SocketHelp
             }
 
         }
-
+        static StreamWriter sw;
         private static void BeginTaceInfo(string info)
         {
             if (!string.IsNullOrEmpty(info))
@@ -250,6 +254,8 @@ namespace SocketHelp
                 //检测日志日期
                 StrategyLog();
                 System.Diagnostics.Trace.WriteLine(info, string.Format(trace_info, DateTime.Now.ToString("HH:mm:ss fff")));
+
+               
             }
         }
 

@@ -37,3 +37,6 @@ D:\work\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\TeleControll
 D:\work\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\TeleController.pdb
 E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\TeleController.dll
 E:\git\telecontrol\src\dotnet\TeleControl\TeleServer\bin\Debug\TeleController.pdb
+D:\work\git\telecontrol\src\dotnet\TeleControl\bin\TeleServer.exe.config
+D:\work\git\telecontrol\src\dotnet\TeleControl\bin\TeleServer.exe
+D:\work\git\telecontrol\src\dotnet\TeleControl\bin\TeleServer.pdb

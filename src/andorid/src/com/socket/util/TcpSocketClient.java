@@ -10,11 +10,14 @@ import java.io.Writer;
 import java.lang.reflect.InvocationTargetException;
 import java.net.Socket;
 
+import android.widget.Toast;
+
 public class TcpSocketClient {
 	String host = "127.0.0.1";  //要连接的服务端IP地址  
     int port = 8899;   //要连接的服务端对应的监听端口  
 	recivedataEvent rEvent;
 	Socket client;
+	ConnectState connectState;
 	
 	public void connect() {
 		new Thread(new Runnable() {
@@ -26,6 +29,7 @@ public class TcpSocketClient {
 					start();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
+					connectState.notifyConnet(1);
 					e.printStackTrace();
 				}
 			}
@@ -48,11 +52,13 @@ public class TcpSocketClient {
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					connectState.notifyConnet(2);
 					try {
 						client.close();
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+						
 					}  
 				}
 			}
@@ -62,17 +68,18 @@ public class TcpSocketClient {
 	public void close() {
 		try {
 			client.close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	public TcpSocketClient(String host, int port, recivedataEvent rEvent) {
+	public TcpSocketClient(String host, int port, recivedataEvent rEvent,ConnectState connectState) {
 		super();
 		this.host = host;
 		this.port = port;
 		this.rEvent = rEvent;
+		this.connectState=connectState;
 	}
 
 
@@ -99,6 +106,7 @@ public class TcpSocketClient {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			connectState.notifyConnet(3);
 		}
 	}
 	
@@ -155,5 +163,9 @@ public class TcpSocketClient {
 	
 	public interface recivedataEvent{
 		public void recive(byte[] bytes) ;
+	}
+	
+	public interface ConnectState{
+		public void notifyConnet(final int statetype) ;
 	}
 }
