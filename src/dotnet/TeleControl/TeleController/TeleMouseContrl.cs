@@ -74,7 +74,7 @@ namespace TeleController
             int x =(int)( W * _X);
             int y = (int)(H * _Y);
 
-           // Logger.Trace(_TeleMouseEvent.ToString());
+            Logger.Trace(_TeleMouseEvent.ToString());
 
             switch (_TeleMouseEvent)
             {

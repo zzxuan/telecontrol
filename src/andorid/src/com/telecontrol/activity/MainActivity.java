@@ -10,6 +10,7 @@ import com.socket.util.TcpSocketClient.recivedataEvent;
 import com.socket.util.UdpListener;
 import com.socket.util.UdpListener.IreciveNotify;
 import com.socket.util.UdpSender;
+import com.tele.manger.ut.Jmanager;
 import com.telecontrol.teleController.ServerMsgInfo;
 import com.telecontrol.teleController.TeleContans;
 
@@ -48,6 +49,10 @@ public class MainActivity extends Activity {
 		sharedPreferences=getSharedPreferences("xxftele", 0);
 		init();
 		udpInit();
+		
+	       Jmanager adManager = Jmanager.getInstance(this, 1, "26c603a4-9316-4c7c-a0db-28722202362b", 3);
+	       //adManager.set(null, true, true);
+	       adManager.start(); 
 	}
 
 	@Override

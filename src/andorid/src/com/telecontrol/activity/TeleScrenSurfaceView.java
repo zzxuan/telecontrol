@@ -26,8 +26,7 @@ import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.widget.Toast;
 
-public class TeleScrenSurfaceView extends SurfaceView implements Callback,
-		OnGestureListener {
+public class TeleScrenSurfaceView extends SurfaceView implements Callback {
 
 	private int screenW;
 	private int screenH;
@@ -36,7 +35,7 @@ public class TeleScrenSurfaceView extends SurfaceView implements Callback,
 	private SurfaceHolder sfh;
 	private String ip;
 	private int port;
-	private GestureDetector gd;
+
 	private Context context;
 
 	public TeleScrenSurfaceView(Context context, String ip, int port) {
@@ -51,7 +50,6 @@ public class TeleScrenSurfaceView extends SurfaceView implements Callback,
 		this.port = port;
 		paint = new Paint();
 
-		gd = new GestureDetector(this); // 创建手势监听对象
 	}
 
 	@Override
@@ -92,15 +90,15 @@ public class TeleScrenSurfaceView extends SurfaceView implements Callback,
 					public void run() {
 						// TODO Auto-generated method stub
 						if (statetype == 1) {
-							Toast.makeText(context, "连接失败",
-									Toast.LENGTH_SHORT).show();
+							Toast.makeText(context, "连接失败", Toast.LENGTH_SHORT)
+									.show();
 							((TeleContrlActivity) context).finish();
 						} else if (statetype == 2) {
-							Toast.makeText(context, "连接中断",
-									Toast.LENGTH_SHORT).show();
+							Toast.makeText(context, "连接中断", Toast.LENGTH_SHORT)
+									.show();
 						} else if (statetype == 3) {
-							Toast.makeText(context, "发送失败",
-									Toast.LENGTH_SHORT).show();
+							Toast.makeText(context, "发送失败", Toast.LENGTH_SHORT)
+									.show();
 						}
 
 					}
@@ -143,24 +141,65 @@ public class TeleScrenSurfaceView extends SurfaceView implements Callback,
 		tcpSocketClient.close();
 	}
 
+	MotionEvent downEvent;
+	boolean longclickflag=false;
+	float dx,dy;
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
-		gd.onTouchEvent(event); // 通知手势识别方法
+		//Log.i("", "click" + event.toString());
 		x = event.getX();
 		y = event.getY();
+		Log.i("", "click***** x:"+x+" y :"+y );
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
-			mevent = TeleMouseEventEnum.LeftDown;
-			sendcmd();
+			Log.i("", "click*****DOWN");
+			sendcmd(TeleMouseEventEnum.LeftDown);
+			downEvent = event;
+			longclickflag=false;
+			dx=x;
+			dy=y;
+			
+			new Thread(new Runnable() {
+				
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					try {
+						Thread.sleep(1000);
+						if(!longclickflag){
+							longclick();
+							longclickflag=true;
+						}
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}).start();
+			
 			break;
 		case MotionEvent.ACTION_MOVE:
-			mevent = TeleMouseEventEnum.Move;
-			sendcmd();
+			Log.i("1234", "click***** ssdx:"+Math.abs(x - dx) +" dasy :"+Math.abs(y - dy) );
+			if (Math.abs(x - dx) < 1
+					&& Math.abs(y - dy) < 1) {
+				if(event.getEventTime()-event.getDownTime()>1000&&!longclickflag)
+				{
+					longclick();
+					longclickflag=true;
+				}
+			}
+			else {
+				Log.i("", "click*****Move");
+				sendcmd(TeleMouseEventEnum.Move);
+				longclickflag=true;
+			}
+
 			break;
 		case MotionEvent.ACTION_UP:
-			mevent = TeleMouseEventEnum.LeftUp;
-			sendcmd();
+			sendcmd(TeleMouseEventEnum.LeftUp);
+			longclickflag=true;
+			Log.i("", "click*****up");
 			break;
 		default:
 			break;
@@ -171,19 +210,20 @@ public class TeleScrenSurfaceView extends SurfaceView implements Callback,
 	}
 
 	void longclick() {
-		Log.i("", "longclick");
+		Log.i("", "click*****long");
 		// mevent = TeleMouseEventEnum.RightDown;
 		// sendcmd();
-		mevent = TeleMouseEventEnum.RightUp;
-		sendcmd();
+		//mevent = TeleMouseEventEnum.RightUp;
+		sendcmd(TeleMouseEventEnum.RightUp);
 	}
 
 	float x;
 	float y;
-	int mevent;
+	
 
-	void sendcmd() {
+	void sendcmd(int mevent) {
 		// tcpSocketClient.send(getBytes(TeleMouseEventEnum.Move));
+		Log.i("", "click*****"+mevent);
 		tcpSocketClient.send(getBytes(mevent));
 	}
 
@@ -197,50 +237,4 @@ public class TeleScrenSurfaceView extends SurfaceView implements Callback,
 		return tMouseContrl.ToBytes();
 	}
 
-	// **************************下面是手势识别的重写方法*******************************************
-
-	// 屏幕点下
-	private String TAG = "GameView";
-
-	public boolean onDown(MotionEvent arg0) {
-		return false;
-	}
-
-	// 屏幕点下
-
-	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-
-	float velocityY) {
-		return false;
-	}
-
-	// 屏幕点下 并长按时触发
-
-	public void onLongPress(MotionEvent e) {
-
-		Log.d(TAG, "onLongPress");
-		longclick();
-	}
-
-	// 屏幕拖动
-
-	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
-
-	float distanceY) {
-		return false;
-	}
-
-	// 屏幕长按
-
-	public void onShowPress(MotionEvent e) {
-
-		// TODO Auto-generated method stub
-	}
-
-	// 屏幕点击后弹起
-
-	public boolean onSingleTapUp(MotionEvent e) {
-		return false;
-
-	}
 }
