@@ -80,7 +80,7 @@ namespace SocketHelp
                         uint m = 0;
                         while (true)
                         {
-                            byte[] data = new byte[len];
+                            byte[] data = new byte[len-4];
                             Array.Copy(buf, 4, data, 0, len-4);
                             
                             //--------------
